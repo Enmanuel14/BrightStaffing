@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Staffing - Home</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* VARIABLES DE COLOR (WINE RED) */
+    :root {
+        --red-primary: #800020; /* Deep Burgundy Red - Color principal */
+        --red-secondary: #B70044; /* Soft Wine Red */
+        --text-color: #333333; /* Texto oscuro */
+        --bg-light: #f8f9fa; /* Fondo claro */
+        --transition-speed: 0.3s;
+        --header-height: 85px; 
+        --section-bg: #ffffff; 
+    }
+
+    /* Base and Reset */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        scroll-behavior: smooth; 
+        overflow-x: hidden; 
+        padding-top: var(--header-height); 
+        background-color: var(--section-bg);
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2.5em;
+        color: var(--red-primary);
+    }
+    
+    .btn-message {
+        display: inline-block;
+        background: white; 
+        color: var(--red-primary); 
+        padding: 12px 30px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        border: 2px solid white; 
+        margin-top: 20px;
+    }
+    .btn-message:hover {
+        background: var(--red-primary); 
+        color: white; 
+        transform: translateY(-2px);
+    }
+
+    /* ------------------- HEADER & NAVIGATION (FIXED) ------------------- */
+    header {
+        background-color: white;
+        position: fixed; 
+        top: 0;
+        width: 100%; 
+        z-index: 1000;
+        padding: 25px 0; 
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
+    }
+    
+    header .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+    }
+    
+    nav {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: 0 40px;
+        flex-shrink: 0;
+    }
+    header h1 a {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin: 0 15px; 
+        padding: 5px 0;
+        position: relative;
+        transition: color var(--transition-speed) ease; 
+    }
+    
+    /* Efecto de subrayado de expansión (NAV LINKS) */
+    nav ul li a::after {
+        content: '';
+        position: absolute;
+        width: 0%; 
+        height: 2px;
+        bottom: 0;
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: var(--red-primary); 
+        transition: width var(--transition-speed) ease-in-out;
+    }
+    
+    nav ul li a:hover {
+        color: var(--red-primary);
+    }
+    nav ul li a:hover::after {
+        width: 100%;
+    }
+    .active-page {
+        color: var(--red-primary) !important;
+        font-weight: bold;
+    }
+    .active-page::after {
+        width: 100% !important;
+    }
+
+
+    .menu-toggle {
+        display: none; 
+        background: none;
+        border: none;
+        /* Hacemos la X un poco más grande y roja */
+        font-size: 2.2em; 
+        cursor: pointer;
+        color: var(--text-color);
+        padding: 5px 10px;
+        /* Transición para el color al pasar el mouse */
+        transition: color 0.3s ease;
+    }
+    .menu-toggle:hover {
+        color: var(--red-primary);
+    }
+
+    /* HERO SECTION */
+    .hero {
+        padding: 120px 0;
+        color: white;
+        text-align: center;
+        background: 
+            linear-gradient(135deg, rgba(128, 0, 32, 0.85) 0%, rgba(183, 0, 68, 0.85) 100%), 
+            url('https://via.placeholder.com/1920x600/800020/FFFFFF?text=Staffing+Team') no-repeat center center / cover; 
+        min-height: 80vh; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    /* --- MEDIA QUERIES --- */
+    @media (max-width: 768px) {
+        
+        body {
+            padding-top: 75px; 
+        }
+
+        header .container { justify-content: space-between; }
+        /* Mostrar el botón en móvil y llevarlo a la derecha */
+        .menu-toggle { display: block; order: 2; margin-right: 10px; } 
+        header h1 { order: 1; margin: 0 0 0 10px; }
+        nav { 
+            display: none; 
+            top: 75px; 
+            left: 0; 
+            width: 100%; 
+            background-color: white; 
+            flex-direction: column; 
+            align-items: flex-start; 
+        }
+        nav.active { display: flex; }
+        nav ul { flex-direction: column; width: 100%; }
+        nav ul li a { display: block; padding: 10px 20px; margin: 0; }
+        
+        nav ul li a::after {
+            content: none;
+        }
+    }
+  </style>
+</head>
+<body>
+  <a id="top-of-page"></a>
+
+  <div id="main-content">
+
+      <header id="main-header-anchor">
+        <div class="container">
+          
+          <nav id="main-nav">
+            <h1><a href="home.html">Bright Staffing</a></h1> 
+            <ul>
+              <li><a href="home.html" class="active-page">Home</a></li> 
+              <li><a href="services.html">Services</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          
+          <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false"></button>
+        </div>
+      </header>
+      
+      <section id="hero" class="hero section-padding">
+        <div class="container" data-aos="fade-up" data-aos-duration="1000">
+          <h2>Staffing Solutions for Legal, Medical, and Business Support</h2>
+          <p>Connecting top talent with businesses that need them most.</p>
+          
+          <a href="services.html" class="btn-message">
+            Ver Nuestros Servicios
+          </a>
+        </div>
+      </section>
+      
+      </div> <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Inicializar AOS
+    AOS.init({
+        once: false, 
+        duration: 800 
+    });
+
+    // Lógica del Menú Hamburguesa
+    const nav = document.getElementById('main-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    // 1. Inicializar el icono como hamburguesa
+    menuToggle.innerHTML = '&#9776;';
+
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active'); 
+        const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+        const newExpandedState = !isExpanded;
+        
+        this.setAttribute('aria-expanded', newExpandedState);
+
+        // 2. Cambiar el icono
+        if (newExpandedState) {
+            this.innerHTML = '&times;'; // 'X' para cerrar
+        } else {
+            this.innerHTML = '&#9776;'; // Hamburguesa
+        }
+    });
+    
+    function closeMobileMenu() {
+        if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            // 3. Asegurar que el icono vuelva a ser hamburguesa al cerrar el menú
+            menuToggle.innerHTML = '&#9776;'; 
+        }
+    }
+
+    document.querySelectorAll('#main-nav ul li a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    
+  </script>
+</body>
+</html>

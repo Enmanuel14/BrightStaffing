@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Staffing - Contact</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* COLOR VARIABLES (WINE RED) */
+    :root {
+        --red-primary: #800020; /* Deep Burgundy Red - Main Color */
+        --red-secondary: #B70044; /* Soft Wine Red */
+        --text-color: #333333; /* Dark Text */
+        --bg-light: #f8f9fa; /* Light Background */
+        --transition-speed: 0.3s;
+        --header-height: 85px; 
+        --section-bg: #ffffff; 
+    }
+
+    /* Base and Reset */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        scroll-behavior: smooth; 
+        overflow-x: hidden; 
+        padding-top: var(--header-height); 
+        background-color: var(--bg-light); 
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-padding {
+        padding: 80px 0; 
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2.5em;
+        color: var(--red-primary);
+    }
+    
+    /* Primary Button */
+    .btn-primary {
+        display: inline-block;
+        background: var(--red-primary); 
+        color: white; 
+        padding: 12px 30px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.2s ease;
+        border: 2px solid var(--red-primary); 
+    }
+    .btn-primary:hover {
+        background: var(--red-secondary); 
+        transform: translateY(-2px);
+    }
+
+    /* ------------------- HEADER & NAVIGATION (FIXED) ------------------- */
+    header {
+        background-color: white;
+        position: fixed; 
+        top: 0;
+        width: 100%; 
+        z-index: 1000;
+        padding: 25px 0; 
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
+    }
+    
+    header .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+    }
+    
+    nav {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: 0 40px;
+        flex-shrink: 0;
+    }
+    header h1 a {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin: 0 15px; 
+        padding: 5px 0;
+        position: relative;
+        transition: color var(--transition-speed) ease; 
+    }
+    
+    nav ul li a::after {
+        content: '';
+        position: absolute;
+        width: 0%; 
+        height: 2px;
+        bottom: 0;
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: var(--red-primary); 
+        transition: width var(--transition-speed) ease-in-out;
+    }
+    
+    nav ul li a:hover {
+        color: var(--red-primary);
+    }
+    nav ul li a:hover::after {
+        width: 100%;
+    }
+    .active-page {
+        color: var(--red-primary) !important;
+        font-weight: bold;
+    }
+    .active-page::after {
+        width: 100% !important;
+    }
+
+    .menu-toggle {
+        display: none; 
+        background: none;
+        border: none;
+        font-size: 2.2em; 
+        cursor: pointer;
+        color: var(--text-color);
+        padding: 5px 10px;
+        transition: color 0.3s ease;
+    }
+    .menu-toggle:hover {
+        color: var(--red-primary);
+    }
+    
+    /* ------------------- CONTACT SECTION ------------------- */
+    
+    #contact-page {
+        background-color: var(--section-bg);
+        text-align: center;
+    }
+
+    .contact-wrapper {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 50px;
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 40px;
+    }
+
+    /* Form Style (Centered on Mailto Action) */
+    .contact-form {
+        background: var(--bg-light);
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .contact-form h3 {
+        color: var(--red-primary);
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    
+    .contact-form .btn-primary {
+        width: 100%;
+        font-size: 1.1em;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact-form .btn-primary i {
+        margin-right: 10px;
+    }
+
+    /* Direct Contact Information */
+    .contact-info-card {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-left: 5px solid var(--red-primary);
+    }
+    
+    .contact-info-card h3 {
+        color: var(--red-primary);
+        margin-bottom: 25px;
+        font-size: 1.5em;
+    }
+    
+    .contact-info-card p {
+        margin-bottom: 20px;
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+    }
+    
+    .contact-info-card i {
+        color: var(--red-secondary);
+        margin-right: 15px;
+        font-size: 1.4em;
+        width: 25px;
+    }
+    
+    .contact-info-card a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .contact-info-card a:hover {
+        color: var(--red-primary);
+    }
+
+
+    /* ------------------- FOOTER STYLES ------------------- */
+    footer {
+        background-color: var(--red-primary);
+        color: white;
+        padding: 40px 0;
+        font-size: 0.9em;
+    }
+    footer .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .footer-section {
+        width: 30%;
+        min-width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--red-secondary);
+        padding-bottom: 5px;
+    }
+
+    .footer-contact p, .footer-contact a {
+        color: #f0f0f0;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 8px;
+        transition: color 0.3s;
+    }
+    .footer-contact a:hover {
+        color: var(--bg-light);
+    }
+    .footer-contact i {
+        margin-right: 10px;
+        width: 20px;
+    }
+
+    .social-icons a {
+        color: white;
+        font-size: 1.5em;
+        margin-right: 15px;
+        transition: color 0.3s;
+    }
+    .social-icons a:hover {
+        color: var(--red-secondary);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* ------------------- BACK TO TOP BUTTON ------------------- */
+    #back-to-top {
+        display: none; 
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: var(--red-primary);
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 18px;
+        line-height: 1;
+        transition: opacity 0.3s, background-color 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    #back-to-top:hover {
+        background-color: var(--red-secondary);
+    }
+
+
+    /* --- MEDIA QUERIES --- */
+    @media (max-width: 992px) {
+        .contact-wrapper {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .contact-info-card {
+            order: -1; 
+        }
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding-top: 75px; 
+        }
+        
+        /* Mobile Header */
+        header .container { justify-content: space-between; }
+        .menu-toggle { display: block; order: 2; margin-right: 10px; } 
+        header h1 { order: 1; margin: 0 0 0 10px; }
+        nav { 
+            display: none; 
+            top: 75px; 
+            left: 0; 
+            width: 100%; 
+            background-color: white; 
+            flex-direction: column; 
+            align-items: flex-start; 
+        }
+        nav.active { display: flex; }
+        nav ul { flex-direction: column; width: 100%; }
+        nav ul li a { display: block; padding: 10px 20px; margin: 0; }
+        nav ul li a::after {
+            content: none;
+        }
+        
+        /* Mobile Footer Adjustment */
+        footer .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-section {
+            width: 100%;
+            min-width: auto;
+            margin-bottom: 30px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <a id="top-of-page"></a>
+
+  <div id="main-content">
+
+      <header id="main-header-anchor">
+        <div class="container">
+          
+          <nav id="main-nav">
+            <h1><a href="home.html">Bright Staffing</a></h1> 
+            <ul>
+              <li><a href="home.html">Home</a></li> 
+              <li><a href="services.html">Services</a></li> 
+              <li><a href="about.html">About Us</a></li> 
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="contact.html" class="active-page">Contact</a></li> </ul>
+          </nav>
+          
+          <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">&#9776;</button>
+        </div>
+      </header>
+      
+      <section id="contact-page" class="section-padding">
+        <div class="container">
+            <h2 data-aos="fade-down">Let's Talk About Your Next Talent</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1em; color: #6c757d;" data-aos="fade-down" data-aos-delay="100">
+                We are ready to find the world-class professionals your company needs. Call us or send us an email to get started.
+            </p>
+
+            <div class="contact-wrapper">
+                
+                <div class="contact-info-card" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Direct Contact Information</h3>
+                    <p>
+                        <i class="fas fa-phone-alt"></i> 
+                        Phone: 
+                        <a href="tel:9452060846">+1 (945) 206-0846</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope"></i> 
+                        Email: 
+                        <a href="mailto:admin@brightteam.us">admin@brightteam.us</a> </p>
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i> 
+                        Headquarters: Miami, Florida (Global Service)
+                    </p>
+                    <p style="margin-top: 30px;">
+                        <i class="fas fa-clock"></i> 
+                        Hours: Monday to Friday, 9:00 AM - 5:00 PM EST
+                    </p>
+                </div>
+
+                <div class="contact-form" data-aos="fade-left" data-aos-delay="300">
+                    <h3>Send a Quick Message</h3>
+                    
+                    <p style="margin-bottom: 30px; color: var(--text-color);">
+                        Click the button below. Your email client will open with a pre-filled draft for you to send us your inquiry directly.
+                    </p>
+
+                    <a href="mailto:enmanuel.perezwyk@gmail.com?subject=Staffing%20Quotation%20Request&body=Hello%20Bright%20Staffing%2C%0A%0AMy%20name%20is%3A%20%0AMy%20company%20is%3A%20%0AThe%20role%20I%20need%20is%3A%20%0A%0AThe%20message%20is%3A%20" 
+                       class="btn-primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="fas fa-paper-plane"></i>
+                        Open Email and Send Inquiry
+                    </a>
+                    
+                    <small style="display: block; margin-top: 20px; color: #6c757d;">
+                        Note: This button will open your email application (Outlook, Gmail, etc.) to send the message.
+                    </small>
+                </div>
+
+            </div>
+        </div>
+      </section>
+
+      
+  </div> <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="back-to-top" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <footer>
+    <div class="container">
+      <div class="footer-section footer-contact" data-aos="fade-up" data-aos-delay="100">
+        <h3>Quick Contact</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Miami, Florida (Global Service)</p>
+        <p><a href="tel:9452060846"><i class="fas fa-phone"></i> +1 (945) 206-0846</a></p>
+        <p><a href="mailto:admin@brightteam.us"><i class="fas fa-envelope"></i> admin@brightteam.us</a></p>
+      </div>
+
+      <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+        <h3>Navigation</h3>
+        <p><a href="home.html">Home</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+
+      <div class="footer-section" data-aos="fade-up" data-aos-delay="500">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top: 15px;">Bright Staffing | World-Class Talent</p>
+      </div>
+    </div>
+    <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
+      <p>&copy; 2025 Bright Staffing. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+        once: false, 
+        duration: 800 
+    });
+
+    // Hamburger Menu Logic
+    const nav = document.getElementById('main-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.innerHTML = '&#9776;';
+
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active'); 
+        const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+        const newExpandedState = !isExpanded;
+        
+        this.setAttribute('aria-expanded', newExpandedState);
+
+        if (newExpandedState) {
+            this.innerHTML = '&times;'; 
+        } else {
+            this.innerHTML = '&#9776;'; 
+        }
+    });
+    
+    function closeMobileMenu() {
+        if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '&#9776;'; 
+        }
+    }
+
+    document.querySelectorAll('#main-nav ul li a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Floating "Back to Top" Button Logic
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) { 
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright Staffing - About Us</title>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* VARIABLES DE COLOR (WINE RED) */
+    :root {
+        --red-primary: #800020; /* Deep Burgundy Red - Color principal */
+        --red-secondary: #B70044; /* Soft Wine Red */
+        --text-color: #333333; /* Texto oscuro (para fondos claros) */
+        --bg-light: #f8f9fa; /* Fondo claro */
+        --transition-speed: 0.3s;
+        --header-height: 85px; 
+        --section-bg: #f8f9fa; 
+    }
+
+    /* Base and Reset */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        scroll-behavior: smooth; 
+        overflow-x: hidden; 
+        /* Asegura espacio para el header fijo */
+        padding-top: var(--header-height); 
+        background-color: var(--section-bg);
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2.5em;
+        color: var(--red-primary);
+    }
+    
+    .btn-message {
+        display: inline-block;
+        background: var(--red-primary); 
+        color: white; 
+        padding: 12px 30px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        border: 2px solid var(--red-primary); 
+        margin-top: 20px;
+    }
+    .btn-message:hover {
+        background: var(--red-secondary); 
+        transform: translateY(-2px);
+    }
+
+    /* ------------------- HEADER & NAVIGATION (FIXED) ------------------- */
+    header {
+        background-color: white;
+        position: fixed; 
+        top: 0;
+        width: 100%; 
+        z-index: 1000;
+        padding: 25px 0; 
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
+    }
+    
+    header .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative; 
+    }
+    
+    nav {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: 0 40px;
+        flex-shrink: 0;
+    }
+    header h1 a {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin: 0 15px; 
+        padding: 5px 0;
+        position: relative;
+        transition: color var(--transition-speed) ease; 
+    }
+    
+    nav ul li a::after {
+        content: '';
+        position: absolute;
+        width: 0%; 
+        height: 2px;
+        bottom: 0;
+        left: 50%; 
+        transform: translateX(-50%); 
+        background-color: var(--red-primary); 
+        transition: width var(--transition-speed) ease-in-out;
+    }
+    
+    nav ul li a:hover {
+        color: var(--red-primary);
+    }
+    .active-page {
+        color: var(--red-primary) !important;
+        font-weight: bold;
+    }
+    .active-page::after {
+        width: 100% !important;
+    }
+
+
+    .menu-toggle {
+        display: none; 
+        background: none;
+        border: none;
+        font-size: 2.2em; 
+        cursor: pointer;
+        color: var(--text-color);
+        padding: 5px 10px;
+        transition: color 0.3s ease;
+    }
+    .menu-toggle:hover {
+        color: var(--red-primary);
+    }
+
+    /* ------------------- ABOUT US SECTION (DEGRADADO ANIMADO FUERTE) ------------------- */
+    
+    /* DEFINICIÓN DE LA ANIMACIÓN DE DEGRADADO */
+    @keyframes flow-gradient {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    #about-us {
+        /* Degradado con colores oscuros y fuertes de la marca para un efecto dramático y animado */
+        background: linear-gradient(135deg, 
+            #4d0014 0%, /* Rojo muy oscuro/casi negro */
+            var(--red-primary) 35%, 
+            var(--red-secondary) 65%, 
+            #4d0014 100%
+        ); 
+        background-size: 600% 600%; 
+        animation: flow-gradient 30s ease infinite; /* Animación lenta y sutil */
+        
+        padding: 80px 0; 
+        position: relative; 
+        overflow: hidden; 
+        z-index: 0; 
+        min-height: 80vh; 
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Layout de Contenido (70% texto / 30% imagen) */
+    .about-content-grid {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .about-text {
+        flex: 0 0 70%; /* 70% width for text */
+        color: white; /* Texto blanco para contraste con el fondo oscuro y fuerte */
+        padding-right: 20px;
+    }
+    .about-text h2 {
+        text-align: left;
+        color: white; /* Título también en blanco */
+        margin-bottom: 20px;
+    }
+
+    .about-image {
+        flex: 0 0 30%; /* 30% width for image */
+        height: 400px; /* Fixed height for visual balance */
+        border-radius: 8px;
+        overflow: hidden;
+        /* Sombra para hacer la imagen resaltar */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    }
+    .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    /* ------------------- SECCIÓN ADICIONAL ------------------- */
+    .arguments-grid {
+        display: flex; 
+        justify-content: space-around; 
+        gap: 40px; 
+        margin-top: 30px;
+    }
+    .argument-icon {
+        color: var(--red-primary); 
+        font-size: 3em;
+    }
+    .argument-card h3 {
+        color: var(--red-secondary); 
+        margin-top: 10px;
+    }
+
+    /* ------------------- FOOTER STYLES ------------------- */
+    footer {
+        background-color: var(--red-primary);
+        color: white;
+        padding: 40px 0;
+        font-size: 0.9em;
+    }
+    footer .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .footer-section {
+        width: 30%;
+        min-width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--red-secondary);
+        padding-bottom: 5px;
+    }
+
+    .footer-contact p, .footer-contact a {
+        color: #f0f0f0;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 8px;
+        transition: color 0.3s;
+    }
+    .footer-contact a:hover {
+        color: var(--bg-light);
+    }
+    .footer-contact i {
+        margin-right: 10px;
+        width: 20px;
+    }
+
+    .social-icons a {
+        color: white;
+        font-size: 1.5em;
+        margin-right: 15px;
+        transition: color 0.3s;
+    }
+    .social-icons a:hover {
+        color: var(--red-secondary);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* ------------------- BACK TO TOP BUTTON ------------------- */
+    #back-to-top {
+        display: none; 
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: var(--red-primary);
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 18px;
+        line-height: 1;
+        transition: opacity 0.3s, background-color 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    #back-to-top:hover {
+        background-color: var(--red-secondary);
+    }
+
+
+    /* --- MEDIA QUERIES --- */
+    @media (max-width: 768px) {
+        
+        body {
+            padding-top: 75px; 
+        }
+        
+        /* Header Móvil */
+        header .container { justify-content: space-between; }
+        .menu-toggle { display: block; order: 2; margin-right: 10px; } 
+        header h1 { order: 1; margin: 0 0 0 10px; }
+        nav { 
+            display: none; 
+            top: 75px; 
+            left: 0; 
+            width: 100%; 
+            background-color: white; 
+            flex-direction: column; 
+            align-items: flex-start; 
+        }
+        nav.active { display: flex; }
+        nav ul { flex-direction: column; width: 100%; }
+        nav ul li a { display: block; padding: 10px 20px; margin: 0; }
+        nav ul li a::after {
+            content: none;
+        }
+        
+        /* Ajuste para el Layout de Acerca de Nosotros en Móvil */
+        .about-content-grid {
+            flex-direction: column;
+        }
+        .about-text, .about-image {
+            flex: 0 0 100%; /* Ambas secciones al 100% de ancho */
+            width: 100%;
+            padding-right: 0;
+            text-align: center;
+        }
+        .about-text h2 {
+            text-align: center;
+        }
+        .about-image {
+            height: 300px;
+        }
+        
+        /* Ajuste para el Footer Móvil */
+        footer .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-section {
+            width: 100%;
+            min-width: auto;
+            margin-bottom: 30px;
+        }
+        .arguments-grid {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <a id="top-of-page"></a>
+
+  <div id="main-content">
+
+      <header id="main-header-anchor">
+        <div class="container">
+          
+          <nav id="main-nav">
+            <h1><a href="home.html">Bright Staffing</a></h1> 
+            <ul>
+              <li><a href="home.html">Home</a></li> 
+              <li><a href="services.html">Services</a></li> 
+              <li><a href="about.html" class="active-page">About Us</a></li> <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          
+          <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false"></button>
+        </div>
+      </header>
+      
+      <section id="about-us" class="section-padding">
+        <div class="container">
+            <div class="about-content-grid">
+                
+                <div class="about-text" data-aos="fade-right">
+                    <h2>Acerca de Bright Staffing</h2>
+                    <p style="font-size: 1.2em; font-weight: 500; margin-bottom: 25px;">
+                        Nuestra misión es simple: conectar empresas ambiciosas con el **talento especializado** que necesitan para prosperar.
+                    </p>
+                    <p>
+                        Fundada en Miami, Florida, Bright Staffing se especializa en la colocación de profesionales de alto rendimiento en sectores críticos como el **legal, médico y de soporte corporativo**. Entendemos que el talento es la base del éxito, por lo que nuestro proceso de selección es riguroso y **sin estrés** para usted, asegurando que solo los candidatos más calificados lleguen a su equipo.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Nos enorgullecemos de ofrecer soluciones de personal que van más allá del simple reclutamiento, proporcionando un **soporte estratégico** que se integra perfectamente con sus objetivos de crecimiento. Trabajamos con usted para encontrar no solo un empleado, sino un miembro valioso de su equipo a largo plazo.
+                    </p>
+                    <a href="contact.html" class="btn-message" style="background: white; color: var(--red-primary); border-color: white;">¡Hablemos de su Equipo!</a>
+                </div>
+                
+                <div class="about-image" data-aos="fade-left">
+                    <img src="./images/thi-nguyen-duc-J5ZKDb4YXlM-unsplash.jpg" alt="Equipo de Bright Staffing"> 
+                </div>
+                
+            </div>
+        </div>
+      </section>
+
+      <section id="mission-vision" class="section-padding" style="background-color: white;">
+          <div class="container" style="text-align: center;">
+              <h2 data-aos="fade-up" style="margin-bottom: 20px;">Nuestra Visión y Valores</h2>
+              <div class="arguments-grid">
+                  <div data-aos="fade-up" data-aos-delay="100">
+                      <i class="fas fa-bullseye argument-icon"></i>
+                      <h3 style="color: var(--red-secondary); margin-top: 10px;">Enfoque en Resultados</h3>
+                      <p style="color: #666;">Nos medimos por el éxito y la permanencia de nuestras colocaciones.</p>
+                  </div>
+                  <div data-aos="fade-up" data-aos-delay="200">
+                      <i class="fas fa-gem argument-icon"></i>
+                      <h3 style="color: var(--red-secondary); margin-top: 10px;">Integridad Absoluta</h3>
+                      <p style="color: #666;">Transparencia y honestidad en cada interacción con clientes y candidatos.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+  </div> <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="back-to-top" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <footer>
+    <div class="container">
+      <div class="footer-section footer-contact" data-aos="fade-up" data-aos-delay="100">
+        <h3>Contacto Rápido</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Miami, Florida (Servicio Global)</p>
+        <p><a href="tel:9452060846"><i class="fas fa-phone"></i> +1 (945) 206-0846</a></p>
+        <p><a href="mailto:admin@brightteam.us"><i class="fas fa-envelope"></i> admin@brightteam.us</a></p>
+      </div>
+
+      <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+        <h3>Navegación</h3>
+        <p><a href="home.html">Home</a></p>
+        <p><a href="services.html">Servicios</a></p>
+        <p><a href="about.html">Nosotros</a></p>
+        <p><a href="contact.html">Contacto</a></p>
+      </div>
+
+      <div class="footer-section" data-aos="fade-up" data-aos-delay="500">
+        <h3>Síguenos</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top: 15px;">Bright Staffing | Talento de Clase Mundial</p>
+      </div>
+    </div>
+    <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
+      <p>&copy; 2025 Bright Staffing. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Inicializar AOS
+    AOS.init({
+        once: false, 
+        duration: 800 
+    });
+
+    // Lógica del Menú Hamburguesa
+    const nav = document.getElementById('main-nav');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    menuToggle.innerHTML = '&#9776;';
+
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active'); 
+        const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+        const newExpandedState = !isExpanded;
+        
+        this.setAttribute('aria-expanded', newExpandedState);
+
+        if (newExpandedState) {
+            this.innerHTML = '&times;'; 
+        } else {
+            this.innerHTML = '&#9776;'; 
+        }
+    });
+    
+    function closeMobileMenu() {
+        if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '&#9776;'; 
+        }
+    }
+
+    document.querySelectorAll('#main-nav ul li a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Lógica para el botón flotante "Back to Top"
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) { 
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+  </script>
+</body>
+</html>
