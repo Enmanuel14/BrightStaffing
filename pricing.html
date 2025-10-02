@@ -1,666 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bright Staffing - Pricing</title>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <style>
-    /* VARIABLES DE COLOR (WINE RED) */
-    :root {
-        --red-primary: #800020; /* Deep Burgundy Red - Color principal */
-        --red-secondary: #B70044; /* Soft Wine Red */
-        --text-color: #333333; /* Texto oscuro */
-        --bg-light: #f8f9fa; /* Fondo claro */
-        --transition-speed: 0.3s;
-        --header-height: 85px; 
-        --section-bg: #f8f9fa; 
-    }
-
-    /* Base and Reset */
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        scroll-behavior: smooth; 
-        overflow-x: hidden; 
-        padding-top: var(--header-height); 
-        background-color: var(--section-bg);
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .section-padding {
-        padding: 80px 0; 
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Staffing - Pricing</title>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    h2 {
-        text-align: center;
-        margin-bottom: 50px;
-        font-size: 2.5em;
-        color: var(--red-primary);
-    }
-    
-    /* Botón principal */
-    .btn-primary {
-        display: inline-block;
-        background: var(--red-primary); 
-        color: white; 
-        padding: 12px 30px;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.3s ease, transform 0.2s ease;
-        border: 2px solid var(--red-primary); 
-    }
-    .btn-primary:hover {
-        background: var(--red-secondary); 
-        transform: translateY(-2px);
-    }
-    /* Botón de la tarjeta destacada */
-    .pricing-card.highlight .btn-primary {
-        background: white;
-        color: var(--red-primary);
-        border: 2px solid white;
-    }
-    .pricing-card.highlight .btn-primary:hover {
-        background: var(--bg-light);
-        color: var(--red-secondary);
-    }
-
-    /* ------------------- HEADER & NAVIGATION (FIXED) ------------------- */
-    header {
-        background-color: white;
-        position: fixed; 
-        top: 0;
-        width: 100%; 
-        z-index: 1000;
-        padding: 25px 0; 
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
-    }
-    
-    header .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; 
-    }
-    
-    nav {
-        display: flex; 
-        justify-content: center; 
-        align-items: center;
-        flex-grow: 1;
-    }
-
-    header h1 {
-        font-size: 1.8em;
-        font-weight: bold;
-        margin: 0 40px;
-        flex-shrink: 0;
-    }
-    header h1 a {
-        color: var(--text-color);
-        text-decoration: none;
-    }
-
-    nav ul {
-        list-style: none;
-        display: flex;
-    }
-
-    nav ul li a {
-        color: var(--text-color);
-        text-decoration: none;
-        margin: 0 15px; 
-        padding: 5px 0;
-        position: relative;
-        transition: color var(--transition-speed) ease; 
-    }
-    
-    nav ul li a::after {
-        content: '';
-        position: absolute;
-        width: 0%; 
-        height: 2px;
-        bottom: 0;
-        left: 50%; 
-        transform: translateX(-50%); 
-        background-color: var(--red-primary); 
-        transition: width var(--transition-speed) ease-in-out;
-    }
-    
-    nav ul li a:hover {
-        color: var(--red-primary);
-    }
-    nav ul li a:hover::after {
-        width: 100%;
-    }
-    .active-page {
-        color: var(--red-primary) !important;
-        font-weight: bold;
-    }
-    .active-page::after {
-        width: 100% !important;
-    }
-
-
-    .menu-toggle {
-        display: none; 
-        background: none;
-        border: none;
-        font-size: 2.2em; 
-        cursor: pointer;
-        color: var(--text-color);
-        padding: 5px 10px;
-        transition: color 0.3s ease;
-    }
-    .menu-toggle:hover {
-        color: var(--red-primary);
-    }
-    
-    /* ------------------- PRICING SECTION ------------------- */
-    
-    #pricing {
-        background-color: var(--bg-light); 
-    }
-
-    .pricing-grid {
-        display: flex;
-        gap: 30px;
-        justify-content: center;
-        align-items: stretch; 
-    }
-
-    .pricing-card {
-        flex: 1;
-        max-width: 350px;
-        background-color: white;
-        border-radius: 12px;
-        padding: 40px;
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .pricing-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .pricing-card .header h3 {
-        font-size: 1.8em;
-        color: var(--red-primary);
-        margin-bottom: 10px;
-    }
-
-    .pricing-card .header p {
-        color: #6c757d;
-        margin-bottom: 25px;
-    }
-
-    .pricing-card .price {
-        font-size: 3em;
-        font-weight: 700;
-        color: var(--text-color);
-        margin-bottom: 15px;
-        line-height: 1.2;
-    }
-    .pricing-card .price small {
-        font-size: 0.4em;
-        font-weight: normal;
-        display: block;
-        color: #6c757d;
-    }
-    
-    .pricing-card .price-note {
-        font-size: 0.9em;
-        color: #6c757d;
-        margin-bottom: 25px;
-    }
-
-    .pricing-card ul {
-        list-style: none;
-        text-align: left;
-        margin-bottom: 30px;
-        flex-grow: 1; 
-    }
-
-    .pricing-card ul li {
-        padding: 10px 0;
-        border-bottom: 1px dashed #eee;
-        color: var(--text-color);
-    }
-    .pricing-card ul li:last-child {
-        border-bottom: none;
-    }
-    .pricing-card ul li i {
-        color: var(--red-primary);
-        margin-right: 10px;
-        width: 15px;
-    }
-    
-    .pricing-card ul .included-feature i {
-        color: green; /* Para distinguir los servicios base */
-        font-weight: bold;
-    }
-
-    /* Estilos para la tarjeta destacada (Recommended Plan) */
-    .pricing-card.highlight {
-        background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-secondary) 100%);
-        color: white; 
-        transform: scale(1.05); 
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        position: relative;
-        z-index: 10;
-        padding-top: 55px; 
-    }
-    
-    .pricing-card.highlight:hover {
-        transform: scale(1.08); 
-    }
-
-    .pricing-card.highlight .header h3 {
-        color: white;
-    }
-    .pricing-card.highlight .header p, 
-    .pricing-card.highlight .price small,
-    .pricing-card.highlight .price-note {
-        color: #f8f9fa; 
-    }
-    
-    .pricing-card.highlight .price {
-        color: white;
-    }
-    
-    .pricing-card.highlight ul li {
-        color: white;
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
-    }
-    .pricing-card.highlight ul li i {
-        color: white; 
-    }
-    /* En el highlight, todas las características son blancas */
-    .pricing-card.highlight ul .included-feature i {
-        color: white; 
-    }
-
-    .highlight-tag {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: var(--red-secondary);
-        color: white;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-weight: bold;
-        font-size: 0.9em;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* ------------------- FOOTER STYLES ------------------- */
-    footer {
-        background-color: var(--red-primary);
-        color: white;
-        padding: 40px 0;
-        font-size: 0.9em;
-    }
-    footer .container {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
-    .footer-section {
-        width: 30%;
-        min-width: 250px;
-        margin-bottom: 20px;
-    }
-
-    .footer-section h3 {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-        border-bottom: 2px solid var(--red-secondary);
-        padding-bottom: 5px;
-    }
-
-    .footer-contact p, .footer-contact a {
-        color: #f0f0f0;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 8px;
-        transition: color 0.3s;
-    }
-    .footer-contact a:hover {
-        color: var(--bg-light);
-    }
-    .footer-contact i {
-        margin-right: 10px;
-        width: 20px;
-    }
-
-    .social-icons a {
-        color: white;
-        font-size: 1.5em;
-        margin-right: 15px;
-        transition: color 0.3s;
-    }
-    .social-icons a:hover {
-        color: var(--red-secondary);
-    }
-
-    .footer-bottom {
-        text-align: center;
-        width: 100%;
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    /* ------------------- BACK TO TOP BUTTON ------------------- */
-    #back-to-top {
-        display: none; 
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 99;
-        border: none;
-        outline: none;
-        background-color: var(--red-primary);
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 50%;
-        font-size: 18px;
-        line-height: 1;
-        transition: opacity 0.3s, background-color 0.3s;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    #back-to-top:hover {
-        background-color: var(--red-secondary);
-    }
-
-
-    /* --- MEDIA QUERIES --- */
-    @media (max-width: 992px) {
-        .pricing-grid {
-            flex-direction: column;
-            gap: 40px;
-            align-items: center;
+    <style>
+        /* COLOR VARIABLES (WINE RED) */
+        :root {
+            --red-primary: #800020; /* Deep Burgundy Red - Main color */
+            --red-secondary: #B70044; /* Soft Wine Red */
+            --text-color: #333333; /* Dark text */
+            --bg-light: #f8f9fa; /* Light background */
+            --transition-speed: 0.3s;
+            --header-height: 85px; 
+            --section-bg: #f8f9fa; 
         }
-        .pricing-card {
-            max-width: 450px;
+
+        /* Base and Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .pricing-card.highlight {
-            transform: scale(1);
-        }
-        .pricing-card.highlight:hover {
-            transform: scale(1.03);
-        }
-    }
-    
-    @media (max-width: 768px) {
+
         body {
-            padding-top: 75px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+            padding-top: var(--header-height); 
+            background-color: var(--section-bg);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 80px 0; 
         }
         
-        /* Header Móvil */
-        header .container { justify-content: space-between; }
-        .menu-toggle { display: block; order: 2; margin-right: 10px; } 
-        header h1 { order: 1; margin: 0 0 0 10px; }
-        nav { 
-            display: none; 
-            top: 75px; 
-            left: 0; 
-            width: 100%; 
-            background-color: white; 
-            flex-direction: column; 
-            align-items: flex-start; 
-        }
-        nav.active { display: flex; }
-        nav ul { flex-direction: column; width: 100%; }
-        nav ul li a { display: block; padding: 10px 20px; margin: 0; }
-        nav ul li a::after {
-            content: none;
-        }
-        
-        /* Ajuste para el Footer Móvil */
-        footer .container {
-            flex-direction: column;
-            align-items: center;
+        h2 {
             text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5em;
+            color: var(--red-primary);
+        }
+        
+        /* Main Button */
+        .btn-primary {
+            display: inline-block;
+            background: var(--red-primary); 
+            color: white; 
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            border: 2px solid var(--red-primary); 
+        }
+        .btn-primary:hover {
+            background: var(--red-secondary); 
+            transform: translateY(-2px);
+        }
+        /* Highlighted card button */
+        .pricing-card.highlight .btn-primary {
+            background: white;
+            color: var(--red-primary);
+            border: 2px solid white;
+        }
+        .pricing-card.highlight .btn-primary:hover {
+            background: var(--bg-light);
+            color: var(--red-secondary);
+        }
+
+        /* ------------------- HEADER & NAVIGATION (FIXED) ------------------- */
+        header {
+            background-color: white;
+            position: fixed; 
+            top: 0;
+            width: 100%; 
+            z-index: 1000;
+            padding: 25px 0; 
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; 
+        }
+        
+        nav {
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 0 40px;
+            flex-shrink: 0;
+        }
+        header h1 a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px; 
+            padding: 5px 0;
+            position: relative;
+            transition: color var(--transition-speed) ease; 
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0%; 
+            height: 2px;
+            bottom: 0;
+            left: 50%; 
+            transform: translateX(-50%); 
+            background-color: var(--red-primary); 
+            transition: width var(--transition-speed) ease-in-out;
+        }
+        
+        nav ul li a:hover {
+            color: var(--red-primary);
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        .active-page {
+            color: var(--red-primary) !important;
+            font-weight: bold;
+        }
+        .active-page::after {
+            width: 100% !important;
+        }
+
+
+        .menu-toggle {
+            display: none; 
+            background: none;
+            border: none;
+            font-size: 2.2em; 
+            cursor: pointer;
+            color: var(--text-color);
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+        .menu-toggle:hover {
+            color: var(--red-primary);
+        }
+        
+        /* ------------------- PRICING SECTION ------------------- */
+        
+        #pricing {
+            background-color: var(--bg-light); 
+        }
+
+        .pricing-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: stretch; 
+        }
+
+        .pricing-card {
+            flex: 1;
+            max-width: 350px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card .header h3 {
+            font-size: 1.8em;
+            color: var(--red-primary);
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .header p {
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .pricing-card .price {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .pricing-card .price small {
+            font-size: 0.4em;
+            font-weight: normal;
+            display: block;
+            color: #6c757d;
+        }
+        
+        .pricing-card .price-note {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1; 
+        }
+
+        .pricing-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            color: var(--text-color);
+        }
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+        .pricing-card ul li i {
+            color: var(--red-primary);
+            margin-right: 10px;
+            width: 15px;
+        }
+        
+        .pricing-card ul .included-feature i {
+            color: green; /* To distinguish base services */
+            font-weight: bold;
+        }
+
+        /* Styles for the highlighted card (Recommended Plan) */
+        .pricing-card.highlight {
+            background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-secondary) 100%);
+            color: white; 
+            transform: scale(1.05); 
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            position: relative;
+            z-index: 10;
+            padding-top: 55px; 
+        }
+        
+        .pricing-card.highlight:hover {
+            transform: scale(1.08); 
+        }
+
+        .pricing-card.highlight .header h3 {
+            color: white;
+        }
+        .pricing-card.highlight .header p, 
+        .pricing-card.highlight .price small,
+        .pricing-card.highlight .price-note {
+            color: #f8f9fa; 
+        }
+        
+        .pricing-card.highlight .price {
+            color: white;
+        }
+        
+        .pricing-card.highlight ul li {
+            color: white;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+        .pricing-card.highlight ul li i {
+            color: white; 
+        }
+        /* In the highlight, all features are white */
+        .pricing-card.highlight ul .included-feature i {
+            color: white; 
+        }
+
+        .highlight-tag {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--red-secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* ------------------- FOOTER STYLES ------------------- */
+        footer {
+            background-color: var(--red-primary);
+            color: white;
+            padding: 40px 0;
+            font-size: 0.9em;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: flex-start;
         }
         .footer-section {
-            width: 100%;
-            min-width: auto;
-            margin-bottom: 30px;
+            width: 30%;
+            min-width: 250px;
+            margin-bottom: 20px;
         }
-    }
-  </style>
+
+        .footer-section h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--red-secondary);
+            padding-bottom: 5px;
+        }
+
+        .footer-contact p, .footer-contact a {
+            color: #f0f0f0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        .footer-contact a:hover {
+            color: var(--bg-light);
+        }
+        .footer-contact i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5em;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--red-secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* ------------------- BACK TO TOP BUTTON ------------------- */
+        #back-to-top {
+            display: none; 
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--red-primary);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            line-height: 1;
+            transition: opacity 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        #back-to-top:hover {
+            background-color: var(--red-secondary);
+        }
+
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .pricing-grid {
+                flex-direction: column;
+                gap: 40px;
+                align-items: center;
+            }
+            .pricing-card {
+                max-width: 450px;
+            }
+            .pricing-card.highlight {
+                transform: scale(1);
+            }
+            .pricing-card.highlight:hover {
+                transform: scale(1.03);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 75px; 
+            }
+            
+            /* Mobile Header */
+            header .container { justify-content: space-between; }
+            .menu-toggle { display: block; order: 2; margin-right: 10px; } 
+            header h1 { order: 1; margin: 0 0 0 10px; }
+            nav { 
+                display: none; 
+                top: 75px; 
+                left: 0; 
+                width: 100%; 
+                background-color: white; 
+                flex-direction: column; 
+                align-items: flex-start; 
+            }
+            nav.active { display: flex; }
+            nav ul { flex-direction: column; width: 100%; }
+            nav ul li a { display: block; padding: 10px 20px; margin: 0; }
+            nav ul li a::after {
+                content: none;
+            }
+            
+            /* Mobile Footer Adjustment */
+            footer .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-section {
+                width: 100%;
+                min-width: auto;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <a id="top-of-page"></a>
+    <a id="top-of-page"></a>
 
-  <div id="main-content">
+    <div id="main-content">
 
-      <header id="main-header-anchor">
-        <div class="container">
-          
-          <nav id="main-nav">
-            <h1><a href="home.html">Bright Staffing</a></h1> 
-            <ul>
-              <li><a href="home.html">Home</a></li> 
-              <li><a href="services.html">Services</a></li> 
-              <li><a href="about.html">About Us</a></li> 
-              <li><a href="pricing.html" class="active-page">Pricing</a></li> <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
-          
-          <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">&#9776;</button>
-        </div>
-      </header>
-      
-      <section id="pricing" class="section-padding">
-        <div class="container">
-            <h2 data-aos="fade-down">Nuestra Tarifa Plana: Calidad y Transparencia</h2>
-            <p style="text-align: center; margin-bottom: 60px; font-size: 1.1em; color: #6c757d;" data-aos="fade-down" data-aos-delay="100">
-                Todos nuestros planes y colocaciones inician con una tarifa base. El precio final se ajusta solo en base a la experiencia requerida y el rol específico.
-            </p>
-
-            <div class="pricing-grid">
+        <header id="main-header-anchor">
+            <div class="container">
                 
-                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="header">
-                        <h3>Plan Standard</h3>
-                        <p>Roles operativos y asistencia administrativa básica.</p>
-                    </div>
-                    
-                    <div class="middle-content">
-                        <div class="price">
-                            $5 USD
-                            <small>Base por Agente/Hora</small>
-                        </div>
-                        <p class="price-note">Ideal para la expansión de su equipo de apoyo.</p>
-
-                        <ul>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Servicios de Asistente Virtual**</li>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Control de Calidad (QA)**</li>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Supervisión de Gestión**</li>
-                            <li><i class="fas fa-check-circle"></i> 1 - 2 Colocaciones por contrato</li>
-                            <li><i class="fas fa-check-circle"></i> Garantía de reemplazo de 30 días</li>
-                            <li><i class="fas fa-check-circle"></i> Roles Básicos (Admin, CS, Cold Calling)</li>
-                        </ul>
-                    </div>
-
-                    <a href="contact.html?plan=Standard" class="btn-primary">Solicitar Cotización</a>
-                </div>
-
-                <div class="pricing-card highlight" data-aos="fade-up" data-aos-delay="300">
-                    <div class="highlight-tag">MÁS VALOR</div>
-                    
-                    <div class="header">
-                        <h3>Plan Premium Specialist</h3>
-                        <p style="color: white;">Incluye todos los servicios con soporte ampliado.</p>
-                    </div>
-
-                    <div class="middle-content">
-                        <div class="price">
-                            $5 USD
-                            <small style="color: #f8f9fa;">Base por Agente/Hora</small>
-                        </div>
-                        <p class="price-note" style="color: #f8f9fa;">Recomendado para talentos especializados y críticos.</p>
-
-                        <ul>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Servicios de Asistente Virtual**</li>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Control de Calidad (QA)**</li>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Supervisión de Gestión**</li>
-                            <li><i class="fas fa-check-circle"></i> Colocaciones Múltiples Ilimitadas</li>
-                            <li><i class="fas fa-check-circle"></i> Garantía de reemplazo de 60 días</li>
-                            <li><i class="fas fa-check-circle"></i> Todos los Roles (Legal, Médico, Gestión)</li>
-                        </ul>
-                    </div>
-
-                    <a href="contact.html?plan=Premium" class="btn-primary">Solicitar Presupuesto</a>
-                </div>
-
-                <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="header">
-                        <h3>Enterprise Solutions</h3>
-                        <p>Soluciones a gran escala y proyectos completos.</p>
-                    </div>
-
-                    <div class="middle-content">
-                        <div class="price">
-                            CUSTOM
-                            <small>Basado en sus requerimientos</small>
-                        </div>
-                        <p class="price-note">Ideal para la expansión de múltiples departamentos o proyectos.</p>
-
-                        <ul>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Servicios de Asistente Virtual**</li>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Control de Calidad (QA)**</li>
-                            <li class="included-feature"><i class="fas fa-check-circle"></i> **Supervisión de Gestión**</li>
-                            <li><i class="fas fa-check-circle"></i> Reclutamiento Masivo y Equipos Completos</li>
-                            <li><i class="fas fa-check-circle"></i> Gestión de Nómina y RRHH incluida</li>
-                            <li><i class="fas fa-check-circle"></i> Asesoría Estratégica Continua</li>
-                        </ul>
-                    </div>
-
-                    <a href="contact.html?plan=Enterprise" class="btn-primary">Solicitar Cotización</a>
-                </div>
-
+                <nav id="main-nav">
+                    <h1><a href="index.html">Bright Staffing</a></h1> 
+                    <ul>
+                        <li><a href="index.html">Home</a></li> 
+                        <li><a href="services.html">Services</a></li> 
+                        <li><a href="about.html">About Us</a></li> 
+                        <li><a href="pricing.html" class="active-page">Pricing</a></li> 
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">&#9776;</button>
             </div>
-            
-            <p style="text-align: center; margin-top: 60px; font-size: 0.95em; color: var(--red-primary);" data-aos="fade-up" data-aos-delay="500">
-                <i class="fas fa-exclamation-circle"></i> *El precio final por hora varía únicamente en base a la **experiencia específica** y las **certificaciones** requeridas para el rol. **Contáctenos** para una cotización exacta.
-            </p>
-        </div>
-      </section>
-
-      
-  </div> <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="back-to-top" title="Go to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <footer>
-    <div class="container">
-      <div class="footer-section footer-contact" data-aos="fade-up" data-aos-delay="100">
-        <h3>Contacto Rápido</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Miami, Florida (Servicio Global)</p>
-        <p><a href="tel:9452060846"><i class="fas fa-phone"></i> +1 (945) 206-0846</a></p>
-        <p><a href="mailto:admin@brightteam.us"><i class="fas fa-envelope"></i> admin@brightteam.us</a></p>
-      </div>
-
-      <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
-        <h3>Navegación</h3>
-        <p><a href="home.html">Home</a></p>
-        <p><a href="services.html">Servicios</a></p>
-        <p><a href="about.html">Nosotros</a></p>
-        <p><a href="contact.html">Contacto</a></p>
-      </div>
-
-      <div class="footer-section" data-aos="fade-up" data-aos-delay="500">
-        <h3>Síguenos</h3>
-        <div class="social-icons">
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p style="margin-top: 15px;">Bright Staffing | Talento de Clase Mundial</p>
-      </div>
-    </div>
-    <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
-      <p>&copy; 2025 Bright Staffing. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    // Inicializar AOS
-    AOS.init({
-        once: false, 
-        duration: 800 
-    });
-
-    // Lógica del Menú Hamburguesa
-    const nav = document.getElementById('main-nav');
-    const menuToggle = document.querySelector('.menu-toggle');
-    menuToggle.innerHTML = '&#9776;';
-
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active'); 
-        const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
-        const newExpandedState = !isExpanded;
+        </header>
         
-        this.setAttribute('aria-expanded', newExpandedState);
+        <section id="pricing" class="section-padding">
+            <div class="container">
+                <h2 data-aos="fade-down">Our Flat Rate: Quality and Transparency</h2>
+                <p style="text-align: center; margin-bottom: 60px; font-size: 1.1em; color: #6c757d;" data-aos="fade-down" data-aos-delay="100">
+                    All our plans and placements start with a base rate. The final price is adjusted only based on the required experience and the specific role.
+                </p>
 
-        if (newExpandedState) {
-            this.innerHTML = '&times;'; 
-        } else {
-            this.innerHTML = '&#9776;'; 
+                <div class="pricing-grid">
+                    
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="header">
+                            <h3>Standard Plan</h3>
+                            <p>Operational roles and basic administrative support.</p>
+                        </div>
+                        
+                        <div class="middle-content">
+                            <div class="price">
+                                $5 USD
+                                <small>Base per Agent/Hour</small>
+                            </div>
+                            <p class="price-note">Ideal for expanding your support team.</p>
+
+                            <ul>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Virtual Assistant Services**</li>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Quality Assurance (QA)**</li>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Management Oversight**</li>
+                                <li><i class="fas fa-check-circle"></i> 1 - 2 Placements per contract</li>
+                                <li><i class="fas fa-check-circle"></i> 30-Day Replacement Guarantee</li>
+                                <li><i class="fas fa-check-circle"></i> Basic Roles (Admin, CS, Cold Calling)</li>
+                            </ul>
+                        </div>
+
+                        <a href="contact.html?plan=Standard" class="btn-primary">Request a Quote</a>
+                    </div>
+
+                    <div class="pricing-card highlight" data-aos="fade-up" data-aos-delay="300">
+                        <div class="highlight-tag">BEST VALUE</div>
+                        
+                        <div class="header">
+                            <h3>Premium Specialist Plan</h3>
+                            <p style="color: white;">Includes all services with extended support.</p>
+                        </div>
+
+                        <div class="middle-content">
+                            <div class="price">
+                                $5 USD
+                                <small style="color: #f8f9fa;">Base per Agent/Hour</small>
+                            </div>
+                            <p class="price-note" style="color: #f8f9fa;">Recommended for specialized and critical talent.</p>
+
+                            <ul>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Virtual Assistant Services**</li>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Quality Assurance (QA)**</li>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Management Oversight**</li>
+                                <li><i class="fas fa-check-circle"></i> Unlimited Multiple Placements</li>
+                                <li><i class="fas fa-check-circle"></i> 60-Day Replacement Guarantee</li>
+                                <li><i class="fas fa-check-circle"></i> All Roles (Legal, Medical, Management)</li>
+                            </ul>
+                        </div>
+
+                        <a href="contact.html?plan=Premium" class="btn-primary">Request Pricing</a>
+                    </div>
+
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="header">
+                            <h3>Enterprise Solutions</h3>
+                            <p>Large-scale solutions and complete projects.</p>
+                        </div>
+
+                        <div class="middle-content">
+                            <div class="price">
+                                CUSTOM
+                                <small>Based on your requirements</small>
+                            </div>
+                            <p class="price-note">Ideal for expansion of multiple departments or projects.</p>
+
+                            <ul>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Virtual Assistant Services**</li>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Quality Assurance (QA)**</li>
+                                <li class="included-feature"><i class="fas fa-check-circle"></i> **Management Oversight**</li>
+                                <li><i class="fas fa-check-circle"></i> Bulk Recruitment and Complete Teams</li>
+                                <li><i class="fas fa-check-circle"></i> Payroll and HR Management Included</li>
+                                <li><i class="fas fa-check-circle"></i> Continuous Strategic Consulting</li>
+                            </ul>
+                        </div>
+
+                        <a href="contact.html?plan=Enterprise" class="btn-primary">Request a Quote</a>
+                    </div>
+
+                </div>
+                
+                <p style="text-align: center; margin-top: 60px; font-size: 0.95em; color: var(--red-primary);" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-exclamation-circle"></i> *The final hourly price varies only based on the **specific experience** and **certifications** required for the role. **Contact us** for an exact quote.
+                </p>
+            </div>
+        </section>
+
+        
+    </div> 
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="back-to-top" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section footer-contact" data-aos="fade-up" data-aos-delay="100">
+                <h3>Quick Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Miami, Florida (Global Service)</p>
+                <p><a href="tel:9452060846"><i class="fas fa-phone"></i> +1 (945) 206-0846</a></p>
+                <p><a href="mailto:admin@brightteam.us"><i class="fas fa-envelope"></i> admin@brightteam.us</a></p>
+            </div>
+
+           
+
+            <div class="footer-section" data-aos="fade-up" data-aos-delay="500">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p style="margin-top: 15px;">Bright Staffing | World-Class Talent</p>
+            </div>
+        </div>
+        <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
+            <p>&copy; 2025 Bright Staffing. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: false, 
+            duration: 800 
+        });
+
+        // Hamburger Menu Logic
+        const nav = document.getElementById('main-nav');
+        const menuToggle = document.querySelector('.menu-toggle');
+        menuToggle.innerHTML = '&#9776;';
+
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active'); 
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            const newExpandedState = !isExpanded;
+            
+            this.setAttribute('aria-expanded', newExpandedState);
+
+            if (newExpandedState) {
+                this.innerHTML = '&times;'; 
+            } else {
+                this.innerHTML = '&#9776;'; 
+            }
+        });
+        
+        function closeMobileMenu() {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.innerHTML = '&#9776;'; 
+            }
         }
-    });
-    
-    function closeMobileMenu() {
-        if (nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.innerHTML = '&#9776;'; 
-        }
-    }
 
-    document.querySelectorAll('#main-nav ul li a').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-    
-    // Lógica para el botón flotante "Back to Top"
-    const backToTopButton = document.getElementById('back-to-top');
+        document.querySelectorAll('#main-nav ul li a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Back to Top button logic
+        const backToTopButton = document.getElementById('back-to-top');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) { 
-            backToTopButton.style.display = 'block';
-        } else {
-            backToTopButton.style.display = 'none';
-        }
-    });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) { 
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
 
-  </script>
+    </script>
 </body>
 </html>

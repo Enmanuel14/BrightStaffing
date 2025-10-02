@@ -8,511 +8,511 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <style>
-    /* VARIABLES DE COLOR (WINE RED) */
+    /* COLOR VARIABLES (WINE RED) */
     :root {
-        --red-primary: #800020; /* Deep Burgundy Red - Color principal */
-        --red-secondary: #B70044; /* Soft Wine Red */
-        --text-color: #333333; /* Texto oscuro */
-        --bg-light: #f8f9fa; /* Fondo claro */
-        --transition-speed: 0.3s;
-        --header-height: 85px; 
-        --section-bg: #f8f9fa; 
+      --red-primary: #800020; /* Deep Burgundy Red - Primary color */
+      --red-secondary: #B70044; /* Soft Wine Red */
+      --text-color: #333333; /* Dark text */
+      --bg-light: #f8f9fa; /* Light background */
+      --transition-speed: 0.3s;
+      --header-height: 85px; 
+      --section-bg: #f8f9fa; 
     }
 
     /* Base and Reset */
     * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        scroll-behavior: smooth; 
-        overflow-x: hidden; 
-        /* Asegura espacio para el header fijo */
-        padding-top: var(--header-height); 
-        background-color: var(--section-bg);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      scroll-behavior: smooth; 
+      overflow-x: hidden; 
+      /* Ensures space for the fixed header */
+      padding-top: var(--header-height); 
+      background-color: var(--section-bg);
     }
 
     .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .section-padding {
-        padding: 60px 0;
+      padding: 60px 0;
     }
     
     h2 {
-        text-align: center;
-        margin-bottom: 50px;
-        font-size: 2.5em;
-        color: var(--red-primary);
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5em;
+      color: var(--red-primary);
     }
     
     .btn-message {
-        display: inline-block;
-        background: var(--red-primary); 
-        color: white; 
-        padding: 12px 30px;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-        border: 2px solid var(--red-primary); 
-        margin-top: 20px;
+      display: inline-block;
+      background: var(--red-primary); 
+      color: white; 
+      padding: 12px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      border: 2px solid var(--red-primary); 
+      margin-top: 20px;
     }
     .btn-message:hover {
-        background: var(--red-secondary); 
-        transform: translateY(-2px);
+      background: var(--red-secondary); 
+      transform: translateY(-2px);
     }
 
     /* ------------------- HEADER & NAVIGATION (FIXED) ------------------- */
     header {
-        background-color: white;
-        position: fixed; 
-        top: 0;
-        width: 100%; 
-        z-index: 1000;
-        padding: 25px 0; 
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
+      background-color: white;
+      position: fixed; 
+      top: 0;
+      width: 100%; 
+      z-index: 1000;
+      padding: 25px 0; 
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); 
     }
     
     header .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative; 
     }
     
     nav {
-        display: flex; 
-        justify-content: center; 
-        align-items: center;
-        flex-grow: 1;
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      flex-grow: 1;
     }
 
     header h1 {
-        font-size: 1.8em;
-        font-weight: bold;
-        margin: 0 40px;
-        flex-shrink: 0;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin: 0 40px;
+      flex-shrink: 0;
     }
     header h1 a {
-        color: var(--text-color);
-        text-decoration: none;
+      color: var(--text-color);
+      text-decoration: none;
     }
 
     nav ul {
-        list-style: none;
-        display: flex;
+      list-style: none;
+      display: flex;
     }
 
     nav ul li a {
-        color: var(--text-color);
-        text-decoration: none;
-        margin: 0 15px; 
-        padding: 5px 0;
-        position: relative;
-        transition: color var(--transition-speed) ease; 
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 15px; 
+      padding: 5px 0;
+      position: relative;
+      transition: color var(--transition-speed) ease; 
     }
     
     nav ul li a::after {
-        content: '';
-        position: absolute;
-        width: 0%; 
-        height: 2px;
-        bottom: 0;
-        left: 50%; 
-        transform: translateX(-50%); 
-        background-color: var(--red-primary); 
-        transition: width var(--transition-speed) ease-in-out;
+      content: '';
+      position: absolute;
+      width: 0%; 
+      height: 2px;
+      bottom: 0;
+      left: 50%; 
+      transform: translateX(-50%); 
+      background-color: var(--red-primary); 
+      transition: width var(--transition-speed) ease-in-out;
     }
     
     nav ul li a:hover {
-        color: var(--red-primary);
+      color: var(--red-primary);
     }
     nav ul li a:hover::after {
-        width: 100%;
+      width: 100%;
     }
     .active-page {
-        color: var(--red-primary) !important;
-        font-weight: bold;
+      color: var(--red-primary) !important;
+      font-weight: bold;
     }
     .active-page::after {
-        width: 100% !important;
+      width: 100% !important;
     }
 
 
     .menu-toggle {
-        display: none; 
-        background: none;
-        border: none;
-        font-size: 2.2em; 
-        cursor: pointer;
-        color: var(--text-color);
-        padding: 5px 10px;
-        transition: color 0.3s ease;
+      display: none; 
+      background: none;
+      border: none;
+      font-size: 2.2em; 
+      cursor: pointer;
+      color: var(--text-color);
+      padding: 5px 10px;
+      transition: color 0.3s ease;
     }
     .menu-toggle:hover {
-        color: var(--red-primary);
+      color: var(--red-primary);
     }
 
     /* ------------------- SERVICE LIST STYLES (VIDEO BACKGROUND) ------------------- */
     
     #services {
-        /* Color de reserva si el video no carga */
-        background-color: var(--red-primary); 
-        padding: 60px 0; 
-        position: relative; /* Ancla el video y la capa de opacidad */
-        overflow: hidden; /* Evita que el video se salga de la sección */
-        /* Asegura que el contenido quede arriba de los elementos de fondo */
-        z-index: 0; 
+      /* Fallback color if the video doesn't load */
+      background-color: var(--red-primary); 
+      padding: 60px 0; 
+      position: relative; /* Anchors the video and the opacity layer */
+      overflow: hidden; /* Prevents the video from leaving the section */
+      /* Ensures the content stays above the background elements */
+      z-index: 0; 
     }
 
-    /* 1. Estilo del Video (Cubre el 100% y se centra) */
+    /* 1. Video Style (Covers 100% and is centered) */
     #services video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Asegura que el video cubra toda la sección sin distorsión */
-        z-index: 1; /* Nivel 1: El video está al fondo */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the entire section without distortion */
+      z-index: 1; /* Level 1: The video is at the bottom */
     }
 
-    /* 2. Capa de Opacidad (Overlay) para hacer el video "no fuerte" */
+    /* 2. Opacity Layer (Overlay) to make the video "less intense" */
     #services::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* Tono Oscuro: Usamos negro semi-transparente (40% de opacidad) para atenuar cualquier color del video */
-        background-color: rgba(0, 0, 0, 0.4); 
-        /* Tono de Marca (Alternativa si prefieres el tinte rojo):
-        background-color: rgba(128, 0, 32, 0.4); 
-        */
-        z-index: 2; /* Nivel 2: La capa de opacidad está sobre el video */
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Dark Tone: We use semi-transparent black (40% opacity) to mute any color in the video */
+      background-color: rgba(0, 0, 0, 0.4); 
+      /* Brand Tone (Alternative if you prefer the red tint):
+      background-color: rgba(128, 0, 32, 0.4); 
+      */
+      z-index: 2; /* Level 2: The opacity layer is over the video */
     }
 
-    /* 3. Asegura que el contenido (Container) esté visible y arriba de todo */
+    /* 3. Ensures the content (Container) is visible and on top of everything */
     #services .container {
-        position: relative;
-        z-index: 3; /* Nivel 3: El contenido está al frente */
+      position: relative;
+      z-index: 3; /* Level 3: The content is at the front */
     }
     
-    /* 4. Mejora de Contraste para el Título y Subtítulo sobre el fondo oscuro/tenue */
+    /* 4. Contrast Improvement for the Title and Subtitle over the dark/muted background */
     #services h2, 
     #services p {
-        color: white; /* Hacemos el texto blanco para que resalte */
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra para mayor legibilidad */
+      color: white; /* We make the text white so it stands out */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
     }
-    /* El resto del contenido (tarjetas blancas) ya tendrá buen contraste */
+    /* The rest of the content (white cards) will already have good contrast */
 
-    /* Tarjetas de Servicio - El fondo blanco hace que resalten del video oscuro */
+    /* Service Cards - The white background makes them stand out from the dark video */
     .services ul {
-        list-style: none;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-        gap: 30px;
-        text-align: center;
-        padding: 0;
-        display: grid; 
+      list-style: none;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 30px;
+      text-align: center;
+      padding: 0;
+      display: grid; 
     }
     .services ul li {
-        background: white; 
-        padding: 30px 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        border: 1px solid #e0e0e0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      background: white; 
+      padding: 30px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .services ul li:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        border-color: var(--red-secondary);
-        color: var(--red-primary);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      border-color: var(--red-secondary);
+      color: var(--red-primary);
     }
     
     .service-icon {
-        background-color: #ffeeee; 
-        color: var(--red-primary); 
-        border: 4px solid #ffdddd; 
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        line-height: 62px; 
-        text-align: center;
-        font-size: 2.2em;
-        margin-bottom: 15px;
-        transition: color 0.3s, background-color 0.3s;
+      background-color: #ffeeee; 
+      color: var(--red-primary); 
+      border: 4px solid #ffdddd; 
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      line-height: 62px; 
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 15px;
+      transition: color 0.3s, background-color 0.3s;
     }
     
     .services ul li:hover .service-icon {
-        color: white; 
-        background-color: var(--red-secondary); 
-        border-color: var(--red-primary);
+      color: white; 
+      background-color: var(--red-secondary); 
+      border-color: var(--red-primary);
     }
     
     .service-title {
-        font-size: 1.3em;
-        font-weight: 700;
-        margin-bottom: 5px;
-        color: var(--text-color); 
+      font-size: 1.3em;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--text-color); 
     }
     
     .services ul li:hover .service-title {
-        color: var(--red-primary); 
+      color: var(--red-primary); 
     }
     
     .service-description {
-        font-size: 0.9em;
-        color: #666;
-        flex-grow: 1; 
+      font-size: 0.9em;
+      color: #666;
+      flex-grow: 1; 
     }
     
     /* ------------------- WHY CHOOSE US SECTION STYLES ------------------- */
     .why-choose-us {
-        background-color: white; 
-        padding: 80px 0;
-        text-align: center;
+      background-color: white; 
+      padding: 80px 0;
+      text-align: center;
     }
     .arguments-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
     .argument-card {
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        background-color: var(--bg-light);
-        transition: transform 0.3s ease;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      background-color: var(--bg-light);
+      transition: transform 0.3s ease;
     }
     .argument-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
     .argument-icon {
-        font-size: 3em;
-        color: var(--red-primary);
-        margin-bottom: 15px;
+      font-size: 3em;
+      color: var(--red-primary);
+      margin-bottom: 15px;
     }
     .argument-card h3 {
-        font-size: 1.4em;
-        color: var(--red-secondary);
-        margin-bottom: 10px;
+      font-size: 1.4em;
+      color: var(--red-secondary);
+      margin-bottom: 10px;
     }
     .argument-card p {
-        color: #666;
+      color: #666;
     }
     
     /* ------------------- SERVICE MODAL STYLES ------------------- */
     .modal {
-        display: none; 
-        position: fixed;
-        z-index: 2000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        overflow-y: auto; 
-        background-color: rgba(0,0,0,0.7);
-        padding: 20px;
+      display: none; 
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto; 
+      background-color: rgba(0,0,0,0.7);
+      padding: 20px;
     }
 
     .modal-content {
-        background-color: #fefefe;
-        padding: 30px;
-        border: 1px solid #888;
-        width: 90%;
-        max-width: 600px;
-        border-radius: 8px;
-        position: relative;
-        text-align: center;
-        animation: fadeIn 0.3s ease;
+      background-color: #fefefe;
+      padding: 30px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 8px;
+      position: relative;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
     }
     @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(-20px);}
-        to {opacity: 1; transform: translateY(0);}
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
     
     .close-btn {
-        color: #aaa;
-        font-size: 28px;
-        font-weight: bold;
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        cursor: pointer;
-        transition: color 0.2s;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      transition: color 0.2s;
     }
     .close-btn:hover, .close-btn:focus {
-        color: var(--red-primary);
-        text-decoration: none;
+      color: var(--red-primary);
+      text-decoration: none;
     }
 
     /* ------------------- FOOTER STYLES ------------------- */
     footer {
-        background-color: var(--red-primary);
-        color: white;
-        padding: 40px 0;
-        font-size: 0.9em;
+      background-color: var(--red-primary);
+      color: white;
+      padding: 40px 0;
+      font-size: 0.9em;
     }
     footer .container {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
     .footer-section {
-        width: 30%;
-        min-width: 250px;
-        margin-bottom: 20px;
+      width: 30%;
+      min-width: 250px;
+      margin-bottom: 20px;
     }
 
     .footer-section h3 {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-        border-bottom: 2px solid var(--red-secondary);
-        padding-bottom: 5px;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--red-secondary);
+      padding-bottom: 5px;
     }
 
     .footer-contact p, .footer-contact a {
-        color: #f0f0f0;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 8px;
-        transition: color 0.3s;
+      color: #f0f0f0;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s;
     }
     .footer-contact a:hover {
-        color: var(--bg-light);
+      color: var(--bg-light);
     }
     .footer-contact i {
-        margin-right: 10px;
-        width: 20px;
+      margin-right: 10px;
+      width: 20px;
     }
 
     .social-icons a {
-        color: white;
-        font-size: 1.5em;
-        margin-right: 15px;
-        transition: color 0.3s;
+      color: white;
+      font-size: 1.5em;
+      margin-right: 15px;
+      transition: color 0.3s;
     }
     .social-icons a:hover {
-        color: var(--red-secondary);
+      color: var(--red-secondary);
     }
 
     .footer-bottom {
-        text-align: center;
-        width: 100%;
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      width: 100%;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* ------------------- BACK TO TOP BUTTON ------------------- */
     #back-to-top {
-        display: none; 
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 99;
-        border: none;
-        outline: none;
-        background-color: var(--red-primary);
-        color: white;
-        cursor: pointer;
-        padding: 15px;
-        border-radius: 50%;
-        font-size: 18px;
-        line-height: 1;
-        transition: opacity 0.3s, background-color 0.3s;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: none; 
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: var(--red-primary);
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      line-height: 1;
+      transition: opacity 0.3s, background-color 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
     #back-to-top:hover {
-        background-color: var(--red-secondary);
+      background-color: var(--red-secondary);
     }
 
 
     /* --- MEDIA QUERIES --- */
     @media (max-width: 768px) {
-        
-        body {
-            padding-top: 75px; 
-        }
-        
-        /* Ajustes para el Header Móvil */
-        header .container { justify-content: space-between; }
-        .menu-toggle { display: block; order: 2; margin-right: 10px; } 
-        header h1 { order: 1; margin: 0 0 0 10px; }
-        nav { 
-            display: none; 
-            top: 75px; 
-            left: 0; 
-            width: 100%; 
-            background-color: white; 
-            flex-direction: column; 
-            align-items: flex-start; 
-        }
-        nav.active { display: flex; }
-        nav ul { flex-direction: column; width: 100%; }
-        nav ul li a { display: block; padding: 10px 20px; margin: 0; }
-        nav ul li a::after {
-            content: none;
-        }
-        
-        /* Ajuste para las Tarjetas de Servicio y Argumentos en Móvil */
-        .services ul, .arguments-grid {
-            grid-template-columns: 1fr;
-        }
-        .services ul li {
-            padding: 20px;
-        }
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            line-height: 52px;
-            font-size: 2em;
-        }
-        
-        /* Ajuste para el Footer Móvil */
-        footer .container {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .footer-section {
-            width: 100%;
-            min-width: auto;
-            margin-bottom: 30px;
-        }
-        .footer-section h3 {
-            border-bottom: none;
-            margin-bottom: 10px;
-        }
-        .footer-contact i {
-            width: auto;
-            margin-right: 5px;
-        }
-        .social-icons {
-            margin-top: 15px;
-        }
-        .footer-contact p, .footer-contact a {
-            display: inline-block; 
-        }
+      
+      body {
+        padding-top: 75px; 
+      }
+      
+      /* Adjustments for the Mobile Header */
+      header .container { justify-content: space-between; }
+      .menu-toggle { display: block; order: 2; margin-right: 10px; } 
+      header h1 { order: 1; margin: 0 0 0 10px; }
+      nav { 
+        display: none; 
+        top: 75px; 
+        left: 0; 
+        width: 100%; 
+        background-color: white; 
+        flex-direction: column; 
+        align-items: flex-start; 
+      }
+      nav.active { display: flex; }
+      nav ul { flex-direction: column; width: 100%; }
+      nav ul li a { display: block; padding: 10px 20px; margin: 0; }
+      nav ul li a::after {
+        content: none;
+      }
+      
+      /* Adjustment for Service Cards and Arguments on Mobile */
+      .services ul, .arguments-grid {
+        grid-template-columns: 1fr;
+      }
+      .services ul li {
+        padding: 20px;
+      }
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        line-height: 52px;
+        font-size: 2em;
+      }
+      
+      /* Adjustment for the Mobile Footer */
+      footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-section {
+        width: 100%;
+        min-width: auto;
+        margin-bottom: 30px;
+      }
+      .footer-section h3 {
+        border-bottom: none;
+        margin-bottom: 10px;
+      }
+      .footer-contact i {
+        width: auto;
+        margin-right: 5px;
+      }
+      .social-icons {
+        margin-top: 15px;
+      }
+      .footer-contact p, .footer-contact a {
+        display: inline-block; 
+      }
     }
   </style>
 </head>
@@ -521,141 +521,141 @@
 
   <div id="main-content">
 
-      <header id="main-header-anchor">
+    <header id="main-header-anchor">
+      <div class="container">
+        
+        <nav id="main-nav">
+          <h1><a href="index.html">Bright Staffing</a></h1> 
+          <ul>
+            <li><a href="index.html">Home</a></li> 
+            <li><a href="services.html" class="active-page">Services</a></li> 
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false"></button>
+      </div>
+    </header>
+    
+    <section id="services" class="services section-padding">
+        
+        <video autoplay loop muted playsinline id="services-video">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="container">
-          
-          <nav id="main-nav">
-            <h1><a href="home.html">Bright Staffing</a></h1> 
-            <ul>
-              <li><a href="home.html">Home</a></li> 
-              <li><a href="services.html" class="active-page">Services</a></li> 
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
-          
-          <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false"></button>
-        </div>
-      </header>
-      
-      <section id="services" class="services section-padding">
-          
-          <video autoplay loop muted playsinline id="services-video">
-              <source src="./1722969-uhd_3840_2160_25fps.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="container">
           <h2 data-aos="fade-down">Our Specialized Staffing Services</h2>
-          <p style="text-align: center; margin-bottom: 40px;">Haga clic en una tarjeta para ver la descripción detallada.</p>
+          <p style="text-align: center; margin-bottom: 40px;">Click on a card to see the detailed description.</p>
           <ul id="services-list">
             
             <li data-aos="fade-up" data-aos-delay="100" onclick="showServiceModal('Legal Assistant')">
-                <i class="fas fa-gavel service-icon"></i>
-                <span class="service-title">Legal Assistant</span>
-                <span class="service-description">Support for documentation, case management, and administrative tasks.</span>
+              <i class="fas fa-gavel service-icon"></i>
+              <span class="service-title">Legal Assistant</span>
+              <span class="service-description">Support for documentation, case management, and administrative tasks.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="200" onclick="showServiceModal('Paralegal')">
-                <i class="fas fa-balance-scale service-icon"></i>
-                <span class="service-title">Paralegal</span>
-                <span class="service-description">Handling investigations, legal writing, and trial preparation.</span>
+              <i class="fas fa-balance-scale service-icon"></i>
+              <span class="service-title">Paralegal</span>
+              <span class="service-description">Handling investigations, legal writing, and trial preparation.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="300" onclick="showServiceModal('Case Manager')">
-                <i class="fas fa-folder-open service-icon"></i>
-                <span class="service-title">Case Manager</span>
-                <span class="service-description">Coordination and monitoring of complex cases and deadlines.</span>
+              <i class="fas fa-folder-open service-icon"></i>
+              <span class="service-title">Case Manager</span>
+              <span class="service-description">Coordination and monitoring of complex cases and deadlines.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="400" onclick="showServiceModal('Cold Calling')">
-                <i class="fas fa-phone-alt service-icon"></i>
-                <span class="service-title">Cold Calling</span>
-                <span class="service-description">Prospecting and generating high-quality sales leads.</span>
+              <i class="fas fa-phone-alt service-icon"></i>
+              <span class="service-title">Cold Calling</span>
+              <span class="service-description">Prospecting and generating high-quality sales leads.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="500" onclick="showServiceModal('Project Management')">
-                <i class="fas fa-project-diagram service-icon"></i>
-                <span class="service-title">Project Management</span>
-                <span class="service-description">Leading projects from start to finish, ensuring on-time delivery.</span>
+              <i class="fas fa-project-diagram service-icon"></i>
+              <span class="service-title">Project Management</span>
+              <span class="service-description">Leading projects from start to finish, ensuring on-time delivery.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="600" onclick="showServiceModal('Medical Records')">
-                <i class="fas fa-file-medical service-icon"></i>
-                <span class="service-title">Medical Records</span>
-                <span class="service-description">Management, organization, and maintenance of health records.</span>
+              <i class="fas fa-file-medical service-icon"></i>
+              <span class="service-title">Medical Records</span>
+              <span class="service-description">Management, organization, and maintenance of health records.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="700" onclick="showServiceModal('Medical Billing')">
-                <i class="fas fa-money-check-alt service-icon"></i>
-                <span class="service-title">Medical Billing</span>
-                <span class="service-description">Billing specialists to maximize revenue and minimize errors.</span>
+              <i class="fas fa-money-check-alt service-icon"></i>
+              <span class="service-title">Medical Billing</span>
+              <span class="service-description">Billing specialists to maximize revenue and minimize errors.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="800" onclick="showServiceModal('Customer Service')">
-                <i class="fas fa-headset service-icon"></i>
-                <span class="service-title">Customer Service</span>
-                <span class="service-description">Handling inquiries, support, and customer retention.</span>
+              <i class="fas fa-headset service-icon"></i>
+              <span class="service-title">Customer Service</span>
+              <span class="service-description">Handling inquiries, support, and customer retention.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="900" onclick="showServiceModal('Sales Agent')">
-                <i class="fas fa-chart-line service-icon"></i>
-                <span class="service-title">Sales Agent</span>
-                <span class="service-description">Results-oriented sales agents, focused on closing deals and expansion.</span>
+              <i class="fas fa-chart-line service-icon"></i>
+              <span class="service-title">Sales Agent</span>
+              <span class="service-description">Results-oriented sales agents, focused on closing deals and expansion.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="1000" onclick="showServiceModal('Front Desk')">
-                <i class="fas fa-concierge-bell service-icon"></i>
-                <span class="service-title">Front Desk</span>
-                <span class="service-description">Professional personnel for office organization and first impressions.</span>
+              <i class="fas fa-concierge-bell service-icon"></i>
+              <span class="service-title">Front Desk</span>
+              <span class="service-description">Professional personnel for office organization and first impressions.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="1100" onclick="showServiceModal('Administrative Assistant')">
-                <i class="fas fa-tasks service-icon"></i>
-                <span class="service-title">Administrative Assistant</span>
-                <span class="service-description">Versatile support maintaining the fluidity of daily office operations.</span>
+              <i class="fas fa-tasks service-icon"></i>
+              <span class="service-title">Administrative Assistant</span>
+              <span class="service-description">Versatile support maintaining the fluidity of daily office operations.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="1200" onclick="showServiceModal('Appointment Setters')">
-                <i class="fas fa-calendar-alt service-icon"></i>
-                <span class="service-title">Appointment Setters</span>
-                <span class="service-description">Specialists in scheduling qualified appointments for your sales or service team.</span>
+              <i class="fas fa-calendar-alt service-icon"></i>
+              <span class="service-title">Appointment Setters</span>
+              <span class="service-description">Specialists in scheduling qualified appointments for your sales or service team.</span>
             </li>
             <li data-aos="fade-up" data-aos-delay="1300" onclick="showServiceModal('IT Support')">
-                <i class="fas fa-desktop service-icon"></i>
-                <span class="service-title">IT Support</span>
-                <span class="service-description">Technicians ready to resolve hardware, software, and network issues.</span>
+              <i class="fas fa-desktop service-icon"></i>
+              <span class="service-title">IT Support</span>
+              <span class="service-description">Technicians ready to resolve hardware, software, and network issues.</span>
             </li>
           </ul>
         </div>
-      </section>
+    </section>
 
-      <section id="why-choose-us" class="why-choose-us section-padding">
-          <div class="container">
-              <h2 data-aos="fade-up">¿Por Qué Elegir Bright Staffing?</h2>
-              <div class="arguments-grid">
-                  <div class="argument-card" data-aos="fade-up" data-aos-delay="100">
-                      <i class="fas fa-check-circle argument-icon"></i>
-                      <h3>Talento Especializado</h3>
-                      <p>Nos enfocamos exclusivamente en perfiles legales, médicos y de soporte de alto nivel, asegurando personal cualificado y listo para trabajar.</p>
-                  </div>
-                  <div class="argument-card" data-aos="fade-up" data-aos-delay="200">
-                      <i class="fas fa-handshake argument-icon"></i>
-                      <h3>Proceso Sin Estrés</h3>
-                      <p>Gestionamos todo el proceso de reclutamiento, desde la búsqueda hasta la incorporación, para que su empresa ahorre tiempo y recursos valiosos.</p>
-                  </div>
-                  <div class="argument-card" data-aos="fade-up" data-aos-delay="300">
-                      <i class="fas fa-shield-alt argument-icon"></i>
-                      <h3>Confianza y Soporte</h3>
-                      <p>Ofrecemos garantía de colocación y soporte continuo, asegurando que la integración del nuevo personal sea exitosa y duradera.</p>
-                  </div>
-              </div>
-          </div>
-      </section>
-      
-      <div id="serviceModal" class="modal">
-        <div class="modal-content">
-          <span class="close-btn" onclick="closeModal()">&times;</span>
-          <h3 id="modalTitle" style="color: var(--red-primary); margin-bottom: 15px;"></h3>
-          <p id="modalDescription">
-            Thank you for your interest. We will promptly provide you with the detailed description of this service. 
-            Our team is ready to discuss how we can cover your staffing needs.
-          </p>
-          <a href="contact.html" class="btn-message" style="margin-top: 25px;">
-            Request this Service
-          </a>
+    <section id="why-choose-us" class="why-choose-us section-padding">
+        <div class="container">
+            <h2 data-aos="fade-up">Why Choose Bright Staffing?</h2>
+            <div class="arguments-grid">
+                <div class="argument-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-check-circle argument-icon"></i>
+                    <h3>Specialized Talent</h3>
+                    <p>We focus exclusively on high-level legal, medical, and support profiles, ensuring qualified personnel ready to work.</p>
+                </div>
+                <div class="argument-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-handshake argument-icon"></i>
+                    <h3>Stress-Free Process</h3>
+                    <p>We manage the entire recruitment process, from searching to onboarding, so your company saves valuable time and resources.</p>
+                </div>
+                <div class="argument-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-alt argument-icon"></i>
+                    <h3>Trust and Support</h3>
+                    <p>We offer placement guarantee and continuous support, ensuring the integration of new personnel is successful and long-lasting.</p>
+                </div>
+            </div>
         </div>
+    </section>
+    
+    <div id="serviceModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h3 id="modalTitle" style="color: var(--red-primary); margin-bottom: 15px;"></h3>
+        <p id="modalDescription">
+          Thank you for your interest. We will promptly provide you with the detailed description of this service. 
+          Our team is ready to discuss how we can cover your staffing needs.
+        </p>
+        <a href="contact.html" class="btn-message" style="margin-top: 25px;">
+          Request this Service
+        </a>
       </div>
-      
+    </div>
+    
   </div> <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="back-to-top" title="Go to top">
     <i class="fas fa-chevron-up"></i>
   </button>
@@ -663,8 +663,8 @@
   <footer>
     <div class="container">
       <div class="footer-section footer-contact" data-aos="fade-up" data-aos-delay="100">
-        <h3>Contacto Rápido</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Miami, Florida (Servicio Global)</p>
+        <h3>Quick Contact</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Miami, Florida (Global Service)</p>
         <p><a href="tel:9452060846"><i class="fas fa-phone"></i> +1 (945) 206-0846</a></p>
         <p><a href="mailto:admin@brightteam.us"><i class="fas fa-envelope"></i> admin@brightteam.us</a></p>
       </div>
@@ -672,30 +672,30 @@
       
 
       <div class="footer-section" data-aos="fade-up" data-aos-delay="500">
-        <h3>Síguenos</h3>
+        <h3>Follow Us</h3>
         <div class="social-icons">
           <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
           <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
-        <p style="margin-top: 15px;">Bright Staffing | Talento de Clase Mundial</p>
+        <p style="margin-top: 15px;">Bright Staffing | World-Class Talent</p>
       </div>
     </div>
     <div class="footer-bottom" data-aos="fade-up" data-aos-delay="600">
-      <p>&copy; 2025 Bright Staffing. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Bright Staffing. All rights reserved.</p>
     </div>
   </footer>
 
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Inicializar AOS
+    // Initialize AOS
     AOS.init({
         once: false, 
         duration: 800 
     });
 
-    // Lógica del Menú Hamburguesa
+    // Hamburger Menu Logic
     const nav = document.getElementById('main-nav');
     const menuToggle = document.querySelector('.menu-toggle');
 
@@ -727,7 +727,7 @@
         link.addEventListener('click', closeMobileMenu);
     });
     
-    // Lógica del Modal de Servicios
+    // Service Modal Logic
     const serviceModal = document.getElementById('serviceModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
@@ -763,7 +763,7 @@
         }
     }
     
-    // Lógica para el botón flotante "Back to Top"
+    // Logic for the floating "Back to Top" button
     const backToTopButton = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
